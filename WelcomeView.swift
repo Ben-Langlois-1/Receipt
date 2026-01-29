@@ -53,8 +53,7 @@ struct WelcomeView: View {
             GoalField(title: "Monthly spending", text: $monthlySpending)
             GoalField(title: "Yearly spending", text: $yearlySpending)
             
-            //Save goals. Can't verify that they have been saved yet.
-            //TODO: see saved goals
+            //Save goals
             Button("Save goals") {
                 let goals = SpendingGoals(
                     daily: dailySpending,
