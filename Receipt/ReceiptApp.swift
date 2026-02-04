@@ -12,7 +12,7 @@ import SwiftData
 struct ReceiptApp: App {
     var body: some Scene {
         WindowGroup {
-            HomeScreen()
+            MainView()
         } .modelContainer(for: [SpendingGoals.self])
     }
 }

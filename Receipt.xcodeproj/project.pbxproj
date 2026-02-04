@@ -10,6 +10,7 @@
 		B4C3D22F2F2AAE880001D9D9 /* Receipt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Receipt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4C3D2752F2BDA530001D9D9 /* Receipt.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = Receipt.xcodeproj; sourceTree = "<group>"; };
 		B4C3D31F2F3294C20001D9D9 /* Receipt.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = Receipt.xcodeproj; sourceTree = "<group>"; };
+		B4D1D9912F33F22A00387A07 /* Receipt.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = Receipt.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -55,6 +56,13 @@
 			sourceTree = "<group>";
 		};
 		B4C3D3232F3294C20001D9D9 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B4D1D9952F33F22A00387A07 /* Products */ = {
 			isa = PBXGroup;
 			children = (
 			);
@@ -121,6 +129,10 @@
 				{
 					ProductGroup = B4C3D3232F3294C20001D9D9 /* Products */;
 					ProjectRef = B4C3D31F2F3294C20001D9D9 /* Receipt.xcodeproj */;
+				},
+				{
+					ProductGroup = B4D1D9952F33F22A00387A07 /* Products */;
+					ProjectRef = B4D1D9912F33F22A00387A07 /* Receipt.xcodeproj */;
 				},
 			);
 			projectRoot = "";
