@@ -10,9 +10,9 @@ import SwiftUI
 
 struct WelcomeView: View {
     @Environment(\.modelContext) var modelContext
-    @State private var dailySpending = 0.0
-    @State private var monthlySpending = 0.0
-    @State private var yearlySpending = 0.0
+    @State private var dailySpending = ""
+    @State private var monthlySpending = ""
+    @State private var yearlySpending = ""
     @FocusState private var amountIsFocused: Bool
     @Binding var showWelcomeScreen: Bool
 
@@ -20,42 +20,35 @@ struct WelcomeView: View {
         NavigationStack {
             VStack {
                 Form {
-                    Section("Input daily, monthly, and yearly spending amounts")
+                    Section("Input spending goals")
                     {
                         TextField(
                             "Daily spending",
-                            value: $dailySpending,
-                            format: .currency(
-                                code: Locale.current.currency?.identifier
-                                    ?? "USD"
-                            )
+                            text: $dailySpending
                         )
 
                         TextField(
                             "Monthly spending",
-                            value: $monthlySpending,
-                            format: .currency(
-                                code: Locale.current.currency?.identifier
-                                    ?? "USD"
+                            text: $monthlySpending
                             )
-                        )
+                        
                         TextField(
                             "Yearly spending",
-                            value: $yearlySpending,
-                            format: .currency(
-                                code: Locale.current.currency?.identifier
-                                    ?? "USD"
+                            text: $yearlySpending
                             )
-                        )
                     }
                     .focused($amountIsFocused)
                     .keyboardType(.decimalPad)
                     //Save goals
                     Button("Save goals") {
+                        let daily = Double(dailySpending) ?? 0.0
+                        let monthly = Double(monthlySpending) ?? 0.0
+                        let yearly = Double(yearlySpending) ?? 0.0
+                        
                         let goals = SpendingGoals(
-                            daily: dailySpending,
-                            monthly: monthlySpending,
-                            yearly: yearlySpending
+                            daily: daily,
+                            monthly: monthly,
+                            yearly: yearly
                         )
                         modelContext.insert(goals)
                         showWelcomeScreen = false
@@ -64,6 +57,7 @@ struct WelcomeView: View {
                     .font(Font.title3)
                     .padding(1)
                     .frame(maxWidth: .infinity)
+                    .disabled(Double(dailySpending) == 0.0 || Double(monthlySpending) == 0.0 || Double(yearlySpending) == 0.0)
 
                 }
                 .navigationTitle("Welcome to Receipt!")
@@ -85,3 +79,4 @@ struct ContentView_Previews: PreviewProvider {
         HomeScreen()
     }
 }
+

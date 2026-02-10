@@ -5,13 +5,13 @@
 //  Created by Benjamin Langlois on 2/4/26.
 //
 
-import SwiftUI
 import SwiftData
-
+import SwiftUI
 
 struct GoalsView: View {
-    @Query private var allGoals: [SpendingGoals]
     
+    @Query private var allGoals: [SpendingGoals]
+
     //Find the most recent goals
     private var latestGoals: SpendingGoals? {
         allGoals.last
@@ -34,7 +34,6 @@ struct GoalsView: View {
             } else {
                 Text("No goals saved yet.")
             }
-
         }
     }
 }
