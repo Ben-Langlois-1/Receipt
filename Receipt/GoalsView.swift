@@ -9,35 +9,69 @@ import SwiftData
 import SwiftUI
 
 struct GoalsView: View {
-    
-    @Query private var allGoals: [SpendingGoals]
+    @Environment(\.modelContext) private var modelContext
+    @Query(sort: \SpendingGoal.startDate) var goals: [SpendingGoal]
+    @State private var editingAmount: String = ""
+    @State private var selectedGoal: SpendingGoal?
 
-    //Find the most recent goals
-    private var latestGoals: SpendingGoals? {
-        allGoals.last
-    }
     var body: some View {
         NavigationStack {
-            Text("Hello, Goals!")
-                .font(Font.largeTitle.bold())
-                .navigationTitle(Text("Goals"))
-            if let latest = latestGoals {
-                Text(
-                    "Daily Goal: \(latest.daily, format: .currency(code: Locale.current.currency?.identifier ?? "USD"))"
-                )
-                Text(
-                    "Monthly Goal: \(latest.monthly, format: .currency(code: Locale.current.currency?.identifier ?? "USD"))"
-                )
-                Text(
-                    "Yearly Goal: \(latest.yearly, format: .currency(code: Locale.current.currency?.identifier ?? "USD"))"
-                )
-            } else {
-                Text("No goals saved yet.")
+            Form {
+                Section("Current Goals") {
+                    ForEach(goals) { goal in
+                        Button {
+                            selectedGoal = goal
+                            editingAmount = String(goal.targetAmount)
+                        } label: {
+                            HStack {
+                                Text(
+                                    "\(goal.frequency.rawValue.capitalized) Goal"
+                                )
+                                Spacer()
+                                Text(
+                                    "\(goal.targetAmount, format: .currency(code: "USD"))"
+                                )
+                                Image(systemName: "pencil")
+                                    .foregroundColor(.gray)
+                            }
+                        }
+                    }
+                }
+
+                if let goalToEdit = selectedGoal {
+                    Section(
+                        "Update \(goalToEdit.frequency.rawValue.capitalized) Goal"
+                    ) {
+                        TextField("New Amount", text: $editingAmount)
+                            .keyboardType(.decimalPad)
+
+                        Button("Save Changes") {
+                            updateGoal(goalToEdit)
+                        }
+                        .disabled(editingAmount.isEmpty)
+
+                        Button("Cancel", role: .cancel) {
+                            selectedGoal = nil
+                        }
+                    }
+                }
+
             }
+
+            .navigationTitle("Goals")
+        }
+    }
+
+    func updateGoal(_ goal: SpendingGoal) {
+        if let newAmount = Double(editingAmount) {
+            goal.targetAmount = newAmount
+
+            selectedGoal = nil
+            editingAmount = ""
         }
     }
 }
 
-#Preview {
+#Preview() {
     GoalsView()
 }

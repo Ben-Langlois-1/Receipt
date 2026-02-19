@@ -5,14 +5,18 @@
 //  Created by Benjamin Langlois on 2/12/26.
 //
 
+import SwiftData
 import SwiftUI
 
 struct AddSpendingView: View {
+    @Environment(\.modelContext) var modelContext
+    @Query var expenses: [Expense]
     @State private var amountSpent: String = ""
     @State private var spendingCategorys = ["Food", "Rent", "Gym", "Misc"]
     @State private var categorySpentOn = "Food"
     @State private var date = Date()
     @FocusState private var amountIsFocused: Bool
+    
 
     var body: some View {
         Form {

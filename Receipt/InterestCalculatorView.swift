@@ -77,7 +77,7 @@ struct InterestCalculatorView: View {
                     .toggleStyle(.switch)
 
             }
-            Section("Total value after \(term) \(selectedTimePeriod)") {
+            Section("Total value after \(term) \(selectedTimePeriod.lowercased())") {
                 Text(
                     returnInterest(),
                     format: .currency(
