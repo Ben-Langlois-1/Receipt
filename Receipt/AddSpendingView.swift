@@ -11,12 +11,15 @@ import SwiftUI
 struct AddSpendingView: View {
     @Environment(\.modelContext) var modelContext
     @Query var expenses: [Expense]
+    @Query(sort: \SpendingCategory.name) var categories: [SpendingCategory]
+    @State var expense: Expense?
+
     @State private var amountSpent: String = ""
-    @State private var spendingCategorys = ["Food", "Rent", "Gym", "Misc"]
-    @State private var categorySpentOn = "Food"
+    @State private var categorySpentOn: SpendingCategory?
     @State private var date = Date()
+
     @FocusState private var amountIsFocused: Bool
-    
+    @Environment(\.dismiss) var dismiss
 
     var body: some View {
         Form {
@@ -25,8 +28,8 @@ struct AddSpendingView: View {
                     .keyboardType(.decimalPad)
                     .focused($amountIsFocused)
                 Picker("Spending Category", selection: $categorySpentOn) {
-                    ForEach(spendingCategorys, id: \.self) {
-                        Text($0)
+                    ForEach(categories) { category in
+                        Text(category.name)
                     }
                 }
                 .pickerStyle(MenuPickerStyle())
@@ -52,12 +55,20 @@ struct AddSpendingView: View {
                     }
                 } else {
                     Button("Done", systemImage: "checkmark") {
-                        //Some action here.
+                        addExpense()
+                        dismiss()
                     }
                 }
             }
         }
+    }
 
+    func addExpense() {
+        let amount = Double(amountSpent) ?? 0.0
+        let newExpense = Expense(amount: amount, timeStamp: date)
+        
+        modelContext.insert(newExpense)
+        
     }
 }
 

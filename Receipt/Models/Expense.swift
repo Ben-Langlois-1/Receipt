@@ -9,7 +9,8 @@ import Foundation
 import SwiftData
 
 @Model
-final class Expense {
+final class Expense: Identifiable {
+    var id = UUID()
     var amount: Double
     var timeStamp: Date
     var category: SpendingCategory?

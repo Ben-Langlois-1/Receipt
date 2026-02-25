@@ -11,6 +11,7 @@ struct InterestCalculatorView: View {
     @State private var amount = ""
     @State private var interest = 0.0
     @State private var term = ""
+    
     @State private var selectedTimePeriod = "Months"
     @FocusState private var amountIsFocused: Bool
     @State private var isCompoundInterest = false

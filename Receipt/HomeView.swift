@@ -12,6 +12,7 @@ import SwiftUI
 
 struct HomeView: View {
     @Query var allGoals: [SpendingGoal]
+    @Query(sort: \Expense.timeStamp, order: .reverse) var expenses: [Expense]
     @State private var showWelcomeView = false
     @State private var navigateToSpending = false
     @State private var session = LanguageModelSession()
@@ -24,7 +25,7 @@ struct HomeView: View {
 
     func generateCommentary() {
         session = LanguageModelSession(instructions: instructions)
-
+        
         Task {
             let response = try await session.respond(to: input)
             output = response.content
@@ -33,56 +34,86 @@ struct HomeView: View {
 
     var body: some View {
         NavigationStack {
-            VStack {
-
-                Text(.init(output))
-                    .font(.headline)
-                    .padding()
-                    .modifier(RoundedRectangle())
-
+            ScrollView {
                 VStack {
-                    Chart(monthlyData) { item in
-                        SectorMark(
-                            angle: .value("Amount", item.amount),
-                            innerRadius: .ratio(0.6),
-                            angularInset: 2.0
-                        )
+                    Text(.init(output))
+                        .font(.headline)
+                        .padding()
+                        .modifier(RoundedRectangle())
 
-                        .cornerRadius(5)
-                        .foregroundStyle(item.color)
-                        .foregroundStyle(
-                            by: .value(
-                                "Category",
-                                "\(item.category) $\(Int(item.amount))"
+                    VStack {
+                        Chart(monthlyData) { item in
+                            SectorMark(
+                                angle: .value("Amount", item.amount),
+                                innerRadius: .ratio(0.6),
+                                angularInset: 2.0
                             )
-                        )
+
+                            .cornerRadius(5)
+                            .foregroundStyle(item.color)
+                            .foregroundStyle(
+                                by: .value(
+                                    "Category",
+                                    "\(item.category) $\(Int(item.amount))"
+                                )
+                            )
+
+                        }
+                        .frame(height: 300)
+                        .chartLegend(alignment: .center, spacing: 40)
+                        .padding()
+                        .modifier(RoundedRectangle())
 
                     }
-                    .frame(height: 300)
-                    .chartLegend(alignment: .center, spacing: 40)
-                    .padding()
+
+                    VStack {
+                        ForEach(expenses.prefix(3)) { expense in
+                            HStack {
+                                VStack(alignment: .leading) {
+                                    Text(expense.timeStamp.formatted())
+                                        .font(.headline)
+                                    Text("Food")
+                                        .foregroundStyle(Color.secondary)
+                                }
+
+                                Spacer()
+                                Text(
+                                    expense.amount,
+                                    format: .currency(code: "USD")
+                                )
+
+                            }
+
+                        }
+                        if expenses.count > 3 {
+                            NavigationLink("All spendings") {
+                                AllSpendingsView()
+                            }
+                        }
+
+                    }
                     .modifier(RoundedRectangle())
-
                 }
-            }
-            .navigationTitle(Text("Hello, Ben"))
-            .onAppear {
-                generateCommentary()
-            }
-            .padding()
-            .toolbar {
-                Button("Add spending", systemImage: "plus") {
-                    navigateToSpending = true
-                }
-            }
-            .navigationDestination(isPresented: $navigateToSpending) {
-                AddSpendingView()
-            }
 
-            Spacer()
-            Spacer()
+                .navigationTitle(Text("Hello, Ben"))
+                //Prompts model to generate commentary based off given string
+                .onAppear {
+                    generateCommentary()
+                }
+                .padding()
+                .toolbar {
+                    Button("Add spending", systemImage: "plus") {
+                        navigateToSpending = true
+                    }
+                }
+                .navigationDestination(isPresented: $navigateToSpending) {
+                    AddSpendingView()
+                }
+
+                Spacer()
+                Spacer()
+            }
         }
-
         .onAppear {
             // Show the welcome sheet only if there are no goals yet
             showWelcomeView = allGoals.isEmpty
@@ -93,6 +124,7 @@ struct HomeView: View {
     }
 }
 
+//This code is temporary
 struct MonthlyExpense: Identifiable {
     let id = UUID()
     let category: String

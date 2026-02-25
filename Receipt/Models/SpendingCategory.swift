@@ -7,9 +7,11 @@
 
 import Foundation
 import SwiftData
+import SwiftUI
 
 @Model
-final class SpendingCategory {
+final class SpendingCategory: Identifiable {
+    var id = UUID()
     var name: String
     var color: String
     //The list of expenses that are attached to this category.
