@@ -56,21 +56,25 @@ struct AddSpendingView: View {
                         amountIsFocused = false
                     }
                 } else {
-                    Button("Done", systemImage: "checkmark") {
-                        let newExpense = Expense(
+                    Button("Done", systemImage: "checkmark", role: .confirm) {
+                        if !amountSpent.isEmpty {
+                            let newExpense = Expense(
                                 amount: Double(amountSpent) ?? 0,
                                 timeStamp: date
                             )
                             newExpense.category = categorySpentOn
                             modelContext.insert(newExpense)
                             dismiss()
+                        } else {
+                            dismiss()
                         }
+
                     }
                 }
             }
         }
     }
-
+}
 
 #Preview {
     AddSpendingView()

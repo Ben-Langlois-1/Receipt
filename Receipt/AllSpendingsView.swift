@@ -20,7 +20,11 @@ struct AllSpendingsView: View {
                         VStack(alignment: .leading) {
                             Text(expense.timeStamp.formatted())
                                 .font(.headline)
-                            Text("Food")
+                            Text(
+                                expense.category?.name
+                                    ?? "Uncategorized"
+                            )
+                            .foregroundStyle(Color.secondary)
                         }
 
                         Spacer()
