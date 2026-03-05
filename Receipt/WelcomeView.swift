@@ -76,8 +76,6 @@ struct WelcomeView: View {
     }
 
     func saveGoal(newAmount: Double, frequency: GoalFrequency) {
-        //TODO need to delete old goals.
-
         guard newAmount > 0 else { return }
 
         let newGoal = SpendingGoal(

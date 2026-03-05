@@ -29,11 +29,13 @@ struct AddSpendingView: View {
                     .focused($amountIsFocused)
                 Picker("Spending Category", selection: $categorySpentOn) {
                     ForEach(categories) { category in
-                        Text(category.name)
+                        Text(category.name).tag(Optional(category))
                     }
                 }
                 .pickerStyle(MenuPickerStyle())
-
+                .onAppear {
+                    categorySpentOn = categories.first
+                }
             }
             Section("When did you spend this?") {
                 DatePicker(
@@ -55,23 +57,22 @@ struct AddSpendingView: View {
                     }
                 } else {
                     Button("Done", systemImage: "checkmark") {
-                        addExpense()
-                        dismiss()
+                        let newExpense = Expense(
+                                amount: Double(amountSpent) ?? 0,
+                                timeStamp: date
+                            )
+                            newExpense.category = categorySpentOn
+                            modelContext.insert(newExpense)
+                            dismiss()
+                        }
                     }
                 }
             }
         }
     }
 
-    func addExpense() {
-        let amount = Double(amountSpent) ?? 0.0
-        let newExpense = Expense(amount: amount, timeStamp: date)
-        
-        modelContext.insert(newExpense)
-        
-    }
-}
 
 #Preview {
     AddSpendingView()
+        .modelContainer(SampleData.container)
 }

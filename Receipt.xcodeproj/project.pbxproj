@@ -20,6 +20,7 @@
 		B4C3D2752F2BDA530001D9D9 /* Receipt.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = Receipt.xcodeproj; sourceTree = "<group>"; };
 		B4C3D31F2F3294C20001D9D9 /* Receipt.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = Receipt.xcodeproj; sourceTree = "<group>"; };
 		B4D1D9912F33F22A00387A07 /* Receipt.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = Receipt.xcodeproj; sourceTree = "<group>"; };
+		B4EC13512F58D846004A7337 /* Receipt.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = Receipt.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -141,6 +142,13 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		B4EC13562F58D846004A7337 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -195,8 +203,8 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = B46D09B12F4272C200CC3205 /* Products */;
-					ProjectRef = B46D09AB2F4272C200CC3205 /* Receipt.xcodeproj */;
+					ProductGroup = B4D1D9952F33F22A00387A07 /* Products */;
+					ProjectRef = B4D1D9912F33F22A00387A07 /* Receipt.xcodeproj */;
 				},
 				{
 					ProductGroup = B4C3D2792F2BDA530001D9D9 /* Products */;
@@ -205,6 +213,10 @@
 				{
 					ProductGroup = B46D08BD2F4119E500CC3205 /* Products */;
 					ProjectRef = B46D08B72F4119E500CC3205 /* Receipt.xcodeproj */;
+				},
+				{
+					ProductGroup = B4EC13562F58D846004A7337 /* Products */;
+					ProjectRef = B4EC13512F58D846004A7337 /* Receipt.xcodeproj */;
 				},
 				{
 					ProductGroup = B467F5CC2F4F70E700F7401D /* Products */;
@@ -239,8 +251,8 @@
 					ProjectRef = B46D08612F3FA23500CC3205 /* Receipt.xcodeproj */;
 				},
 				{
-					ProductGroup = B4D1D9952F33F22A00387A07 /* Products */;
-					ProjectRef = B4D1D9912F33F22A00387A07 /* Receipt.xcodeproj */;
+					ProductGroup = B46D09B12F4272C200CC3205 /* Products */;
+					ProjectRef = B46D09AB2F4272C200CC3205 /* Receipt.xcodeproj */;
 				},
 			);
 			projectRoot = "";

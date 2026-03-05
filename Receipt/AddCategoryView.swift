@@ -35,7 +35,7 @@ struct AddCategoryView: View {
                         dismiss()
                         let newCategory = SpendingCategory(
                             name: newCategoryName,
-                            color: "gray"
+                            color: newCategoryColor
                         )
                         modelContext.insert(newCategory)
                         withAnimation {
@@ -50,4 +50,5 @@ struct AddCategoryView: View {
 }
 #Preview {
     AddCategoryView()
+        .modelContainer(SampleData.container)
 }

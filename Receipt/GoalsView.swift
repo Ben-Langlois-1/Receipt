@@ -18,7 +18,7 @@ struct GoalsView: View {
     @State private var selectedGoal: SpendingGoal?
     @State private var selectedCategory: SpendingCategory?
     @State private var showAddCategoryView = false
-    
+
     var body: some View {
         NavigationStack {
             Form {
@@ -35,10 +35,13 @@ struct GoalsView: View {
                                 Text(
                                     "\(goal.frequency.rawValue.capitalized) Goal"
                                 )
+                                .font(Font.body)
+                                .foregroundStyle(.black)
                                 Spacer()
                                 Text(
                                     "\(goal.targetAmount, format: .currency(code: "USD"))"
                                 )
+                                .font(Font.body.bold())
                                 Image(systemName: "pencil")
                                     .foregroundStyle(Color.gray)
                             }
@@ -59,7 +62,10 @@ struct GoalsView: View {
                         .disabled(editingAmount.isEmpty)
 
                         Button("Cancel", role: .cancel) {
-                            selectedGoal = nil
+                            withAnimation {
+                                selectedGoal = nil
+
+                            }
                         }
                     }
                 }
@@ -67,7 +73,7 @@ struct GoalsView: View {
                     ForEach(categories) { category in
                         Button {
                             withAnimation {
-                                //See comment on line ~105
+                                //See comment on line ~124
                                 //showAddCategoryView.toggle()
                                 selectedCategory = category
                                 editingAmount = ""
@@ -75,6 +81,12 @@ struct GoalsView: View {
                         } label: {
                             HStack {
                                 Text(category.name)
+                                    .padding(6)
+                                    .foregroundStyle(.white)
+                                    .background(
+                                        Capsule().fill(category.color)
+                                    )
+                                    .font(Font.body.bold())
                                 Spacer()
                                 Image(systemName: "pencil")
                                     .foregroundColor(.gray)
@@ -84,7 +96,6 @@ struct GoalsView: View {
                     }
                     //TODO: addd confirmation message before deletion
                     .onDelete(perform: deleteCategory(_:))
-                    
 
                 }
 
@@ -111,12 +122,17 @@ struct GoalsView: View {
                             showAddCategoryView.toggle()
                         }
                     } label: {
-                        Image(systemName: "plus")
-                            .foregroundStyle(.white)
-                            .padding(6)
-                            .background(
-                                Circle().fill(Color.blue)
-                            )
+                        HStack {
+                            Text("Add new spending category")
+                                .foregroundStyle(.black)
+                            Spacer()
+                            Image(systemName: "plus")
+                                .foregroundStyle(.white)
+                                .padding(6)
+                                .background(
+                                    Circle().fill(Color.blue)
+                                )
+                        }
                     }
                 }
                 /*
@@ -134,7 +150,9 @@ struct GoalsView: View {
                         .disabled(editingAmount.isEmpty)
 
                         Button("Cancel", role: .cancel) {
-                            selectedCategory = nil
+                            withAnimation {
+                                selectedCategory = nil
+                            }
                         }
                     }
                 }
@@ -174,4 +192,5 @@ struct GoalsView: View {
 
 #Preview() {
     GoalsView()
+        .modelContainer(SampleData.container)
 }

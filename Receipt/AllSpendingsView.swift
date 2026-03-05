@@ -50,4 +50,5 @@ struct AllSpendingsView: View {
 
 #Preview {
     AllSpendingsView()
+        .modelContainer(SampleData.container)
 }

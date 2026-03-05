@@ -13,7 +13,7 @@ final class Expense: Identifiable {
     var id = UUID()
     var amount: Double
     var timeStamp: Date
-    var category: SpendingCategory?
+    @Relationship(inverse: \SpendingCategory.expenses) var category: SpendingCategory?
     
     init(amount: Double, timeStamp: Date, category: SpendingCategory? = nil) {
         self.amount = amount
