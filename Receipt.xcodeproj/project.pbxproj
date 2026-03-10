@@ -7,14 +7,21 @@
 	objects = {
 
 /* Begin PBXFileReference section */
+		B430F9512F4655F5005C59F0 /* Receipt.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = Receipt.xcodeproj; sourceTree = "<group>"; };
+		B467F5C62F4F70E700F7401D /* Receipt.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = Receipt.xcodeproj; sourceTree = "<group>"; };
 		B46D08062F3E6F6C00CC3205 /* Receipt.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = Receipt.xcodeproj; sourceTree = "<group>"; };
 		B46D08612F3FA23500CC3205 /* Receipt.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = Receipt.xcodeproj; sourceTree = "<group>"; };
 		B46D08B72F4119E500CC3205 /* Receipt.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = Receipt.xcodeproj; sourceTree = "<group>"; };
+		B46D09AB2F4272C200CC3205 /* Receipt.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = Receipt.xcodeproj; sourceTree = "<group>"; };
+		B46D0A6F2F43C10600CC3205 /* Receipt.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = Receipt.xcodeproj; sourceTree = "<group>"; };
+		B49F0FC72F478E7800A5DD95 /* Receipt.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = Receipt.xcodeproj; sourceTree = "<group>"; };
 		B4AC2DD42F3D316E006B4248 /* Receipt.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = Receipt.xcodeproj; sourceTree = "<group>"; };
 		B4C3D22F2F2AAE880001D9D9 /* Receipt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Receipt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4C3D2752F2BDA530001D9D9 /* Receipt.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = Receipt.xcodeproj; sourceTree = "<group>"; };
 		B4C3D31F2F3294C20001D9D9 /* Receipt.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = Receipt.xcodeproj; sourceTree = "<group>"; };
 		B4D1D9912F33F22A00387A07 /* Receipt.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = Receipt.xcodeproj; sourceTree = "<group>"; };
+		B4EA6BFE2F5A36EA002098F2 /* Receipt.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = Receipt.xcodeproj; sourceTree = "<group>"; };
+		B4EC13512F58D846004A7337 /* Receipt.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = Receipt.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -36,6 +43,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B430F9572F4655F5005C59F0 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B467F5CC2F4F70E700F7401D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		B46D080C2F3E6F6C00CC3205 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -51,6 +72,27 @@
 			sourceTree = "<group>";
 		};
 		B46D08BD2F4119E500CC3205 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B46D09B12F4272C200CC3205 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B46D0A742F43C10600CC3205 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B49F0FCD2F478E7800A5DD95 /* Products */ = {
 			isa = PBXGroup;
 			children = (
 			);
@@ -95,6 +137,20 @@
 			sourceTree = "<group>";
 		};
 		B4D1D9952F33F22A00387A07 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B4EA6C032F5A36EA002098F2 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B4EC13562F58D846004A7337 /* Products */ = {
 			isa = PBXGroup;
 			children = (
 			);
@@ -155,6 +211,30 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
+					ProductGroup = B46D09B12F4272C200CC3205 /* Products */;
+					ProjectRef = B46D09AB2F4272C200CC3205 /* Receipt.xcodeproj */;
+				},
+				{
+					ProductGroup = B4C3D2792F2BDA530001D9D9 /* Products */;
+					ProjectRef = B4C3D2752F2BDA530001D9D9 /* Receipt.xcodeproj */;
+				},
+				{
+					ProductGroup = B46D08BD2F4119E500CC3205 /* Products */;
+					ProjectRef = B46D08B72F4119E500CC3205 /* Receipt.xcodeproj */;
+				},
+				{
+					ProductGroup = B4EC13562F58D846004A7337 /* Products */;
+					ProjectRef = B4EC13512F58D846004A7337 /* Receipt.xcodeproj */;
+				},
+				{
+					ProductGroup = B4EA6C032F5A36EA002098F2 /* Products */;
+					ProjectRef = B4EA6BFE2F5A36EA002098F2 /* Receipt.xcodeproj */;
+				},
+				{
+					ProductGroup = B467F5CC2F4F70E700F7401D /* Products */;
+					ProjectRef = B467F5C62F4F70E700F7401D /* Receipt.xcodeproj */;
+				},
+				{
 					ProductGroup = B4AC2DD92F3D316E006B4248 /* Products */;
 					ProjectRef = B4AC2DD42F3D316E006B4248 /* Receipt.xcodeproj */;
 				},
@@ -163,16 +243,20 @@
 					ProjectRef = B46D08062F3E6F6C00CC3205 /* Receipt.xcodeproj */;
 				},
 				{
-					ProductGroup = B4C3D2792F2BDA530001D9D9 /* Products */;
-					ProjectRef = B4C3D2752F2BDA530001D9D9 /* Receipt.xcodeproj */;
+					ProductGroup = B46D0A742F43C10600CC3205 /* Products */;
+					ProjectRef = B46D0A6F2F43C10600CC3205 /* Receipt.xcodeproj */;
+				},
+				{
+					ProductGroup = B49F0FCD2F478E7800A5DD95 /* Products */;
+					ProjectRef = B49F0FC72F478E7800A5DD95 /* Receipt.xcodeproj */;
 				},
 				{
 					ProductGroup = B4C3D3232F3294C20001D9D9 /* Products */;
 					ProjectRef = B4C3D31F2F3294C20001D9D9 /* Receipt.xcodeproj */;
 				},
 				{
-					ProductGroup = B46D08BD2F4119E500CC3205 /* Products */;
-					ProjectRef = B46D08B72F4119E500CC3205 /* Receipt.xcodeproj */;
+					ProductGroup = B430F9572F4655F5005C59F0 /* Products */;
+					ProjectRef = B430F9512F4655F5005C59F0 /* Receipt.xcodeproj */;
 				},
 				{
 					ProductGroup = B46D08672F3FA23500CC3205 /* Products */;

@@ -5,14 +5,21 @@
 //  Created by Benjamin Langlois on 2/12/26.
 //
 
+import SwiftData
 import SwiftUI
 
 struct AddSpendingView: View {
+    @Environment(\.modelContext) var modelContext
+    @Query var expenses: [Expense]
+    @Query(sort: \SpendingCategory.name) var categories: [SpendingCategory]
+    @State var expense: Expense?
+
     @State private var amountSpent: String = ""
-    @State private var spendingCategorys = ["Food", "Rent", "Gym", "Misc"]
-    @State private var categorySpentOn = "Food"
+    @State private var categorySpentOn: SpendingCategory?
     @State private var date = Date()
+
     @FocusState private var amountIsFocused: Bool
+    @Environment(\.dismiss) var dismiss
 
     var body: some View {
         Form {
@@ -21,12 +28,14 @@ struct AddSpendingView: View {
                     .keyboardType(.decimalPad)
                     .focused($amountIsFocused)
                 Picker("Spending Category", selection: $categorySpentOn) {
-                    ForEach(spendingCategorys, id: \.self) {
-                        Text($0)
+                    ForEach(categories) { category in
+                        Text(category.name).tag(Optional(category))
                     }
                 }
                 .pickerStyle(MenuPickerStyle())
-
+                .onAppear {
+                    categorySpentOn = categories.first
+                }
             }
             Section("When did you spend this?") {
                 DatePicker(
@@ -47,16 +56,27 @@ struct AddSpendingView: View {
                         amountIsFocused = false
                     }
                 } else {
-                    Button("Done", systemImage: "checkmark") {
-                        //Some action here.
+                    Button("Done", systemImage: "checkmark", role: .confirm) {
+                        if !amountSpent.isEmpty {
+                            let newExpense = Expense(
+                                amount: Double(amountSpent) ?? 0,
+                                timeStamp: date
+                            )
+                            newExpense.category = categorySpentOn
+                            modelContext.insert(newExpense)
+                            dismiss()
+                        } else {
+                            dismiss()
+                        }
+
                     }
                 }
             }
         }
-
     }
 }
 
 #Preview {
     AddSpendingView()
+        .modelContainer(SampleData.container)
 }
