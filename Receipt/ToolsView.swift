@@ -17,6 +17,7 @@ struct ToolsView: View {
                     }
                      NavigationLink("Savings Goal Calculator") {
                         SavingsGoalCalculatorView()
+                     }
                 }
             }
             .navigationTitle("Tools")
