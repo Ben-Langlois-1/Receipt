@@ -11,9 +11,16 @@ struct ToolsView: View {
     var body: some View {
         NavigationStack {
             Form {
-                Section {
+               Section {
                     NavigationLink("Interest calculator") {
                         InterestCalculatorView()
+                    }
+                    NavigationLink("Savings Goal Calculator") {
+                        SavingsGoalCalculatorView()
+                    }
+                    
+                    NavigationLink("Budget Remaining Calculator") {
+                        BudgetRemainingCalculatorView()
                     }
                 }
             }
