@@ -5,7 +5,6 @@
 //  Created by Benjamin Langlois on 3/4/26.
 //
 
-import Foundation
 import SwiftData
 import SwiftUI
 

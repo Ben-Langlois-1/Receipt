@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "2620"
+   LastUpgradeVersion = "2630"
    version = "1.7">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -50,6 +50,13 @@
             ReferencedContainer = "container:Receipt.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
+      <EnvironmentVariables>
+         <EnvironmentVariable
+            key = "api key"
+            value = "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"
+            isEnabled = "YES">
+         </EnvironmentVariable>
+      </EnvironmentVariables>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"

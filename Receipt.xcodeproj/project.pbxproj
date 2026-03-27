@@ -6,8 +6,16 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		B434A8112F740F6700C0A79F /* OpenAI in Frameworks */ = {isa = PBXBuildFile; productRef = B434A8102F740F6700C0A79F /* OpenAI */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
+		B40817A52F7217BD0037118A /* Receipt.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = Receipt.xcodeproj; sourceTree = "<group>"; };
 		B430F9512F4655F5005C59F0 /* Receipt.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = Receipt.xcodeproj; sourceTree = "<group>"; };
+		B434A7EE2F740EA900C0A79F /* Receipt.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = Receipt.xcodeproj; sourceTree = "<group>"; };
+		B434A83A2F744D8A00C0A79F /* Receipt.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = Receipt.xcodeproj; sourceTree = "<group>"; };
+		B44800652F747CA000D5B114 /* Receipt.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = Receipt.xcodeproj; sourceTree = "<group>"; };
 		B467F5C62F4F70E700F7401D /* Receipt.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = Receipt.xcodeproj; sourceTree = "<group>"; };
 		B46D08062F3E6F6C00CC3205 /* Receipt.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = Receipt.xcodeproj; sourceTree = "<group>"; };
 		B46D08612F3FA23500CC3205 /* Receipt.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = Receipt.xcodeproj; sourceTree = "<group>"; };
@@ -37,13 +45,42 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B434A8112F740F6700C0A79F /* OpenAI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B40817AB2F7217BD0037118A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		B430F9572F4655F5005C59F0 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B434A7F42F740EA900C0A79F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B434A83F2F744D8A00C0A79F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B448006A2F747CA000D5B114 /* Products */ = {
 			isa = PBXGroup;
 			children = (
 			);
@@ -177,6 +214,7 @@
 			);
 			name = Receipt;
 			packageProductDependencies = (
+				B434A8102F740F6700C0A79F /* OpenAI */,
 			);
 			productName = Receipt;
 			productReference = B4C3D22F2F2AAE880001D9D9 /* Receipt.app */;
@@ -190,7 +228,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 2620;
-				LastUpgradeCheck = 2620;
+				LastUpgradeCheck = 2630;
 				TargetAttributes = {
 					B4C3D22E2F2AAE880001D9D9 = {
 						CreatedOnToolsVersion = 26.2;
@@ -206,6 +244,9 @@
 			);
 			mainGroup = B4C3D2262F2AAE880001D9D9;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				B434A80F2F740F6700C0A79F /* XCRemoteSwiftPackageReference "OpenAI" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = B4C3D2302F2AAE880001D9D9 /* Products */;
 			projectDirPath = "";
@@ -213,10 +254,6 @@
 				{
 					ProductGroup = B46D09B12F4272C200CC3205 /* Products */;
 					ProjectRef = B46D09AB2F4272C200CC3205 /* Receipt.xcodeproj */;
-				},
-				{
-					ProductGroup = B4C3D2792F2BDA530001D9D9 /* Products */;
-					ProjectRef = B4C3D2752F2BDA530001D9D9 /* Receipt.xcodeproj */;
 				},
 				{
 					ProductGroup = B46D08BD2F4119E500CC3205 /* Products */;
@@ -231,12 +268,32 @@
 					ProjectRef = B4EA6BFE2F5A36EA002098F2 /* Receipt.xcodeproj */;
 				},
 				{
+					ProductGroup = B4AC2DD92F3D316E006B4248 /* Products */;
+					ProjectRef = B4AC2DD42F3D316E006B4248 /* Receipt.xcodeproj */;
+				},
+				{
+					ProductGroup = B4C3D3232F3294C20001D9D9 /* Products */;
+					ProjectRef = B4C3D31F2F3294C20001D9D9 /* Receipt.xcodeproj */;
+				},
+				{
+					ProductGroup = B434A7F42F740EA900C0A79F /* Products */;
+					ProjectRef = B434A7EE2F740EA900C0A79F /* Receipt.xcodeproj */;
+				},
+				{
+					ProductGroup = B448006A2F747CA000D5B114 /* Products */;
+					ProjectRef = B44800652F747CA000D5B114 /* Receipt.xcodeproj */;
+				},
+				{
+					ProductGroup = B4C3D2792F2BDA530001D9D9 /* Products */;
+					ProjectRef = B4C3D2752F2BDA530001D9D9 /* Receipt.xcodeproj */;
+				},
+				{
 					ProductGroup = B467F5CC2F4F70E700F7401D /* Products */;
 					ProjectRef = B467F5C62F4F70E700F7401D /* Receipt.xcodeproj */;
 				},
 				{
-					ProductGroup = B4AC2DD92F3D316E006B4248 /* Products */;
-					ProjectRef = B4AC2DD42F3D316E006B4248 /* Receipt.xcodeproj */;
+					ProductGroup = B40817AB2F7217BD0037118A /* Products */;
+					ProjectRef = B40817A52F7217BD0037118A /* Receipt.xcodeproj */;
 				},
 				{
 					ProductGroup = B46D080C2F3E6F6C00CC3205 /* Products */;
@@ -251,16 +308,16 @@
 					ProjectRef = B49F0FC72F478E7800A5DD95 /* Receipt.xcodeproj */;
 				},
 				{
-					ProductGroup = B4C3D3232F3294C20001D9D9 /* Products */;
-					ProjectRef = B4C3D31F2F3294C20001D9D9 /* Receipt.xcodeproj */;
-				},
-				{
 					ProductGroup = B430F9572F4655F5005C59F0 /* Products */;
 					ProjectRef = B430F9512F4655F5005C59F0 /* Receipt.xcodeproj */;
 				},
 				{
 					ProductGroup = B46D08672F3FA23500CC3205 /* Products */;
 					ProjectRef = B46D08612F3FA23500CC3205 /* Receipt.xcodeproj */;
+				},
+				{
+					ProductGroup = B434A83F2F744D8A00C0A79F /* Products */;
+					ProjectRef = B434A83A2F744D8A00C0A79F /* Receipt.xcodeproj */;
 				},
 				{
 					ProductGroup = B4D1D9952F33F22A00387A07 /* Products */;
@@ -354,6 +411,7 @@
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -411,6 +469,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -502,6 +561,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		B434A80F2F740F6700C0A79F /* XCRemoteSwiftPackageReference "OpenAI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/MacPaw/OpenAI";
+			requirement = {
+				kind = exactVersion;
+				version = 0.2.5;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		B434A8102F740F6700C0A79F /* OpenAI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B434A80F2F740F6700C0A79F /* XCRemoteSwiftPackageReference "OpenAI" */;
+			productName = OpenAI;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = B4C3D2272F2AAE880001D9D9 /* Project object */;
 }

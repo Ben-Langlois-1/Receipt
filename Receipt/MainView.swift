@@ -19,6 +19,9 @@ struct MainView: View {
             Tab("Goals", systemImage: "flag.pattern.checkered") {
                 GoalsView()
             }
+            Tab("Chatbot", systemImage: "text.bubble.fill") {
+                ChatBotView()
+            }
             Tab("Tools", systemImage: "wrench.and.screwdriver.fill") {
                 ToolsView()
             }

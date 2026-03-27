@@ -6,36 +6,39 @@
 //
 
 import SwiftUI
+
 struct BudgetRemainingCalculatorView: View {
-    
+
     @State private var monthlyBudget = ""
     @State private var amountSpent = ""
-    
+
     var remainingBudget: Double {
         let budget = Double(monthlyBudget) ?? 0
         let spent = Double(amountSpent) ?? 0
         return budget - spent
     }
-    
+
     var body: some View {
         Form {
-            
+
             Section("Budget Information") {
-                
+
                 TextField("Monthly Budget", text: $monthlyBudget)
                     .keyboardType(.decimalPad)
-                
+
                 TextField("Amount Spent", text: $amountSpent)
                     .keyboardType(.decimalPad)
             }
-            
+
             Section("Remaining Budget") {
-                
+
                 Text(
                     remainingBudget,
-                    format: .currency(code: Locale.current.currency?.identifier ?? "USD")
+                    format: .currency(
+                        code: Locale.current.currency?.identifier ?? "USD"
+                    )
                 )
-                
+
                 if remainingBudget < 0 {
                     Text("You are over budget!")
                         .foregroundColor(.red)
