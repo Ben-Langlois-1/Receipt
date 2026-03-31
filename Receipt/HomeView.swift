@@ -30,23 +30,23 @@ struct HomeView: View {
         NavigationStack {
             VStack(alignment: .leading, spacing: 12) {
                 ScrollView {
-                    VStack(alignment: .leading, spacing: 12) {
-                        if let reply = chatController.messages.last(where: { $0.isUser == false }) {
-                            Text(reply.content)
-                                .frame(maxWidth: .infinity, alignment: .leading)
-                                .modifier(RoundedRectangle())
-                        } else {
-                            ProgressView()
-                        }
-                    }
+                                        VStack(alignment: .leading, spacing: 12) {
+                                            if let reply = chatController.messages.last(where: {
+                                                $0.isUser == false
+                                            }) {
+                                                Text(reply.content)
+                                                    .frame(maxWidth: .infinity, alignment: .leading)
+                                                    .modifier(RoundedCard())
+                                            } else {
+                                                ProgressView()
+                                            }
+                                        }
 
                     VStack {
-                        withAnimation {
-                            SpendingChart(
-                                categories: monthlyData,
-                                startDate: selectedSpendingPeriod.startDate,
-                            )
-                        }
+                        SpendingChart(
+                            categories: monthlyData,
+                            startDate: selectedSpendingPeriod.startDate,
+                        )
 
                         Picker(
                             "Spending period",
@@ -60,56 +60,57 @@ struct HomeView: View {
                         .pickerStyle(.segmented)
 
                     }
-
-                    .modifier(RoundedRectangle())
-
-                    VStack {
-                        List {
-                            ForEach(expenses.prefix(3)) { expense in
-                                HStack {
-                                    VStack(alignment: .leading) {
-                                        Text(expense.timeStamp.formatted())
-                                            .font(.headline)
-                                        Text(
-                                            expense.category?.name
-                                                ?? "Uncategorized"
-                                        )
-                                        .padding(4.5)
-                                        .foregroundStyle(.white)
-                                        .background(
-                                            Capsule().fill(
-                                                expense.category?.color
-                                                    ?? .secondary
-                                            )
-                                        )
-                                        .font(Font.body)
-
-                                    }
-
-                                    Spacer()
-                                    Text(
-                                        expense.amount,
-                                        format: .currency(code: "USD")
-                                    )
-
-                                }
-                                .listRowBackground(
-                                    Color(UIColor.secondarySystemBackground)
+                    .overlay {
+                        if expenses.isEmpty {
+                            ContentUnavailableView(
+                                "No spending",
+                                systemImage: "xmark.bin.fill",
+                                description: Text(
+                                    "No spending history to display."
                                 )
-                            }
-                            if expenses.count > 3 {
-                                NavigationLink("All spendings") {
-                                    AllSpendingsView()
-                                }
-                                .listRowBackground(
-                                    Color(UIColor.secondarySystemBackground)
-                                )
-                            }
+                            )
                         }
-                        .scrollDisabled(true)
-                        .scrollContentBackground(.hidden)
-                        .frame(height: 80 * 4)
+                    }
+                    .modifier(RoundedCard())
 
+                    VStack(spacing: 0) {
+                        ForEach(expenses.prefix(3)) { expense in
+                            HStack {
+                                VStack(alignment: .leading) {
+                                    Text(expense.timeStamp.formatted())
+                                        .font(.headline)
+                                    Text(
+                                        expense.category?.name
+                                            ?? "Uncategorized"
+                                    )
+                                    .padding(4.5)
+                                    .foregroundStyle(.white)
+                                    .background(
+                                        Capsule().fill(
+                                            expense.category?.color
+                                                ?? .secondary
+                                        )
+                                    )
+                                    .font(Font.body)
+
+                                }
+
+                                Spacer()
+                                Text(
+                                    expense.amount,
+                                    format: .currency(code: "USD")
+                                )
+                            }
+                            .padding()
+                            Divider()
+                        }
+                        
+                        if expenses.count > 3 {
+                            NavigationLink("All spendings") {
+                                AllSpendingsView()
+                            }
+                            .padding()
+                        }
                     }
 
                     .background(Color(UIColor.secondarySystemBackground))
@@ -123,6 +124,7 @@ struct HomeView: View {
                     navigateToSpending = true
                 }
             }
+
             .navigationDestination(isPresented: $navigateToSpending) {
                 AddSpendingView()
             }
@@ -130,6 +132,8 @@ struct HomeView: View {
         .onAppear {
             // Show the welcome sheet only if there are no goals yet
             showWelcomeView = allGoals.isEmpty
+
+            //Generate text
             let amount = expenses.last?.amount ?? 0
             let formatted = amount.formatted(
                 .currency(code: Locale.current.currency?.identifier ?? "USD")
@@ -177,7 +181,7 @@ struct HomeView: View {
 
 //MARK: Additonal functions
 //Custom modifier so I don't have to type all this below each text box.
-struct RoundedRectangle: ViewModifier {
+struct RoundedCard: ViewModifier {
     func body(content: Content) -> some View {
         content
             .padding()
@@ -191,7 +195,6 @@ struct RoundedRectangle: ViewModifier {
 struct SpendingChart: View {
     let categories: [SpendingCategory]
     let startDate: Date
-    @Query var monthlyData: [SpendingCategory]
 
     var body: some View {
         Chart(categories) { item in
@@ -219,8 +222,8 @@ struct SpendingChart: View {
             spacing: 16
         )
         .chartForegroundStyleScale(
-            domain: monthlyData.map { $0.name },
-            range: monthlyData.map { $0.color }
+            domain: categories.map { $0.name },
+            range: categories.map { $0.color }
         )
     }
     func filteredTotal(for category: SpendingCategory) -> Double {

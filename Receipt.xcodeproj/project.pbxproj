@@ -16,13 +16,18 @@
 		B434A7EE2F740EA900C0A79F /* Receipt.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = Receipt.xcodeproj; sourceTree = "<group>"; };
 		B434A83A2F744D8A00C0A79F /* Receipt.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = Receipt.xcodeproj; sourceTree = "<group>"; };
 		B44800652F747CA000D5B114 /* Receipt.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = Receipt.xcodeproj; sourceTree = "<group>"; };
+		B45921972F7C1E4400206E38 /* Receipt.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = Receipt.xcodeproj; sourceTree = "<group>"; };
 		B467F5C62F4F70E700F7401D /* Receipt.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = Receipt.xcodeproj; sourceTree = "<group>"; };
 		B46D08062F3E6F6C00CC3205 /* Receipt.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = Receipt.xcodeproj; sourceTree = "<group>"; };
 		B46D08612F3FA23500CC3205 /* Receipt.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = Receipt.xcodeproj; sourceTree = "<group>"; };
 		B46D08B72F4119E500CC3205 /* Receipt.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = Receipt.xcodeproj; sourceTree = "<group>"; };
 		B46D09AB2F4272C200CC3205 /* Receipt.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = Receipt.xcodeproj; sourceTree = "<group>"; };
 		B46D0A6F2F43C10600CC3205 /* Receipt.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = Receipt.xcodeproj; sourceTree = "<group>"; };
+		B47E892A2F7C3EF9003D3E0C /* Receipt.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = Receipt.xcodeproj; sourceTree = "<group>"; };
+		B47E89782F7C6341003D3E0C /* Receipt.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = Receipt.xcodeproj; sourceTree = "<group>"; };
 		B49F0FC72F478E7800A5DD95 /* Receipt.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = Receipt.xcodeproj; sourceTree = "<group>"; };
+		B4A9A0C42F7C1CF0004616FA /* Receipt.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = Receipt.xcodeproj; sourceTree = "<group>"; };
+		B4AA9BE82F7C3EAD004F8196 /* Receipt.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = Receipt.xcodeproj; sourceTree = "<group>"; };
 		B4AC2DD42F3D316E006B4248 /* Receipt.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = Receipt.xcodeproj; sourceTree = "<group>"; };
 		B4C3D22F2F2AAE880001D9D9 /* Receipt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Receipt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4C3D2752F2BDA530001D9D9 /* Receipt.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = Receipt.xcodeproj; sourceTree = "<group>"; };
@@ -87,6 +92,13 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		B459219D2F7C1E4400206E38 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		B467F5CC2F4F70E700F7401D /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -129,7 +141,35 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		B47E89302F7C3EF9003D3E0C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B47E897E2F7C6341003D3E0C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		B49F0FCD2F478E7800A5DD95 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B4A9A0C92F7C1CF0004616FA /* Products */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B4AA9BEE2F7C3EAD004F8196 /* Products */ = {
 			isa = PBXGroup;
 			children = (
 			);
@@ -252,8 +292,8 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = B46D09B12F4272C200CC3205 /* Products */;
-					ProjectRef = B46D09AB2F4272C200CC3205 /* Receipt.xcodeproj */;
+					ProductGroup = B4D1D9952F33F22A00387A07 /* Products */;
+					ProjectRef = B4D1D9912F33F22A00387A07 /* Receipt.xcodeproj */;
 				},
 				{
 					ProductGroup = B46D08BD2F4119E500CC3205 /* Products */;
@@ -268,8 +308,24 @@
 					ProjectRef = B4EA6BFE2F5A36EA002098F2 /* Receipt.xcodeproj */;
 				},
 				{
+					ProductGroup = B459219D2F7C1E4400206E38 /* Products */;
+					ProjectRef = B45921972F7C1E4400206E38 /* Receipt.xcodeproj */;
+				},
+				{
+					ProductGroup = B4A9A0C92F7C1CF0004616FA /* Products */;
+					ProjectRef = B4A9A0C42F7C1CF0004616FA /* Receipt.xcodeproj */;
+				},
+				{
 					ProductGroup = B4AC2DD92F3D316E006B4248 /* Products */;
 					ProjectRef = B4AC2DD42F3D316E006B4248 /* Receipt.xcodeproj */;
+				},
+				{
+					ProductGroup = B4AA9BEE2F7C3EAD004F8196 /* Products */;
+					ProjectRef = B4AA9BE82F7C3EAD004F8196 /* Receipt.xcodeproj */;
+				},
+				{
+					ProductGroup = B47E89302F7C3EF9003D3E0C /* Products */;
+					ProjectRef = B47E892A2F7C3EF9003D3E0C /* Receipt.xcodeproj */;
 				},
 				{
 					ProductGroup = B4C3D3232F3294C20001D9D9 /* Products */;
@@ -312,6 +368,10 @@
 					ProjectRef = B430F9512F4655F5005C59F0 /* Receipt.xcodeproj */;
 				},
 				{
+					ProductGroup = B47E897E2F7C6341003D3E0C /* Products */;
+					ProjectRef = B47E89782F7C6341003D3E0C /* Receipt.xcodeproj */;
+				},
+				{
 					ProductGroup = B46D08672F3FA23500CC3205 /* Products */;
 					ProjectRef = B46D08612F3FA23500CC3205 /* Receipt.xcodeproj */;
 				},
@@ -320,8 +380,8 @@
 					ProjectRef = B434A83A2F744D8A00C0A79F /* Receipt.xcodeproj */;
 				},
 				{
-					ProductGroup = B4D1D9952F33F22A00387A07 /* Products */;
-					ProjectRef = B4D1D9912F33F22A00387A07 /* Receipt.xcodeproj */;
+					ProductGroup = B46D09B12F4272C200CC3205 /* Products */;
+					ProjectRef = B46D09AB2F4272C200CC3205 /* Receipt.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -485,6 +545,7 @@
 				DEVELOPMENT_TEAM = 4LZXBNSNHC;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSFaceIDUsageDescription = "Use Face ID to securely unlock your Receipt app.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -517,6 +578,7 @@
 				DEVELOPMENT_TEAM = 4LZXBNSNHC;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSFaceIDUsageDescription = "Use Face ID to securely unlock your Receipt app.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

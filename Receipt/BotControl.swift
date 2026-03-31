@@ -5,7 +5,7 @@
 //  Created by Benjamin Langlois on 3/25/26.
 //
 
-internal import Combine
+import Combine
 import OpenAI
 import SwiftUI
 
@@ -17,6 +17,10 @@ struct Message: Identifiable {
 
 class ChatController: ObservableObject {
     @Published var messages: [Message] = []
+    @AppStorage("chatBotPersonality") private var chatBotPersonality: Personalities = .normal
+    var systemPrompt: String {
+            ChatController.personalityPrompts[chatBotPersonality] ?? "You are a helpful assistant."
+        }
 
     private let apiKey =
         ProcessInfo.processInfo.environment["api key"] ?? ""
@@ -30,12 +34,21 @@ class ChatController: ObservableObject {
         getBotReply()
     }
     
+    static let personalityPrompts: [Personalities: String] = [
+            .mean:   "You are rude and dismissive in your responses.",
+            .normal: "You are a helpful and neutral assistant.",
+            .nice:   "You are warm, encouraging, and supportive.",
+            .smart:  "You are highly analytical and precise in your responses."
+        ]
+    
+    //"Respond to everything following these instructions: High-Pressure / Savage, use tough love to shame a users bad spending habits. Extrapolate spending events out when appropriate and show the user how much they will spend if they continue over the next week, month, or year (for example). You must keep your response to 1 paragraph (~30 words)."
+    
     func getBotReply() {
         let personality = [
             Chat(
                 role: .user,
-                content:
-                    "Respond to everything following these instructions: High-Pressure / Savage, use tough love to shame a users bad spending habits. Extrapolate spending events out when appropriate and show the user how much they will spend if they continue over the next week, month, or year (for example). You must keep your response to 1 paragraph (~30 words)."
+                content: systemPrompt
+                    
             )
         ]
 

@@ -36,14 +36,14 @@ struct GoalsView: View {
                                     "\(goal.frequency.rawValue.capitalized) Goal"
                                 )
                                 .font(Font.body)
-                                .foregroundStyle(.black)
+                                .foregroundStyle(.primary)
                                 Spacer()
                                 Text(
                                     "\(goal.targetAmount, format: .currency(code: "USD"))"
                                 )
                                 .font(Font.body.bold())
                                 Image(systemName: "pencil")
-                                    .foregroundStyle(Color.gray)
+                                    .foregroundStyle(Color.secondary)
                             }
                         }
                     }
@@ -89,7 +89,7 @@ struct GoalsView: View {
                                     .font(Font.body.bold())
                                 Spacer()
                                 Image(systemName: "pencil")
-                                    .foregroundColor(.gray)
+                                    .foregroundColor(.secondary)
                             }
                         }
 
@@ -124,7 +124,7 @@ struct GoalsView: View {
                     } label: {
                         HStack {
                             Text("Add new spending category")
-                                .foregroundStyle(.black)
+                                .foregroundStyle(.primary)
                             Spacer()
                             Image(systemName: "plus")
                                 .foregroundStyle(.white)

@@ -10,6 +10,9 @@ import SwiftUI
 
 @main
 struct ReceiptApp: App {
+    @AppStorage("preferDarkMode") private var preferDarkMode: Bool = false
+    @StateObject private var authManager = AuthManager()
+
     let container: ModelContainer = {
         let config = ModelConfiguration(isStoredInMemoryOnly: false)
         return try! ModelContainer(
@@ -21,7 +24,20 @@ struct ReceiptApp: App {
     }()
 
     var body: some Scene {
-        WindowGroup { MainView() }
-            .modelContainer(container)
+        WindowGroup {
+            Group {
+                if authManager.isAuthenticated {
+                    MainView()
+                        .preferredColorScheme(preferDarkMode ? .dark : .light)
+                        .environmentObject(authManager)
+
+                } else {
+                    LoginView()
+                        .preferredColorScheme(preferDarkMode ? .dark : .light)
+                        .environmentObject(authManager)
+                }
+            }
+        }
+        .modelContainer(container)
     }
 }

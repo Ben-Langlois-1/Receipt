@@ -14,6 +14,8 @@ struct ChatBotView: View {
     
     @StateObject var chatController: ChatController = .init()
     @State var string: String = ""
+    
+    @AppStorage("chatBotPersonality") private var chatBotPersonality: Personalities = .normal
 
     var body: some View {
         NavigationStack {

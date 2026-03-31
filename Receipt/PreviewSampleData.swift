@@ -17,29 +17,30 @@ import SwiftUI
 struct SampleData {
     static let container: ModelContainer = {
         let config = ModelConfiguration(isStoredInMemoryOnly: true)
-        let container = try! ModelContainer(
-            for: Expense.self,
-            SpendingCategory.self,
-            SpendingGoal.self,
-            configurations: config
-        )
+        let container: ModelContainer
+        do {
+            container = try ModelContainer(
+                for: Expense.self,
+                SpendingCategory.self,
+                SpendingGoal.self,
+                configurations: config
+            )
+        } catch {
+            fatalError("Failed to create ModelContainer: \(error)")
+        }
         //Example expenses
+        let food = SpendingCategory(name: "Food", color: .blue)
+        let rent = SpendingCategory(name: "Rent", color: .red)
+        let gym = SpendingCategory(name: "Gym", color: .green)
+        let misc = SpendingCategory(name: "Misc", color: .yellow)
+
+        [food, rent, gym, misc].forEach { container.mainContext.insert($0) }
+
         let expenses = [
-            Expense(
-                amount: 100,
-                timeStamp: Date(),
-                category: .init(name: "Food", color: .blue)
-            ),
-            Expense(
-                amount: 1000,
-                timeStamp: Date(),
-                category: .init(name: "Rent", color: .red)
-            ),
-            Expense(
-                amount: 25,
-                timeStamp: Date(),
-                category: .init(name: "Gym", color: .green)
-            ),
+            Expense(amount: 100, timeStamp: Date(), category: food),
+            Expense(amount: 1000, timeStamp: Date(), category: rent),
+            Expense(amount: 25, timeStamp: Date(), category: gym),
+            Expense(amount: 30, timeStamp: Date(), category: misc),
         ]
         expenses.forEach { container.mainContext.insert($0) }
 
