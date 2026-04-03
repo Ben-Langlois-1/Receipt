@@ -53,7 +53,7 @@
       <EnvironmentVariables>
          <EnvironmentVariable
             key = "api key"
-            value = "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"
+            value = "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"
             isEnabled = "YES">
          </EnvironmentVariable>
       </EnvironmentVariables>

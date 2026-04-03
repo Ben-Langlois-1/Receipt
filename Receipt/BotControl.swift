@@ -17,10 +17,8 @@ struct Message: Identifiable {
 
 class ChatController: ObservableObject {
     @Published var messages: [Message] = []
-    @AppStorage("chatBotPersonality") private var chatBotPersonality: Personalities = .normal
-    var systemPrompt: String {
-            ChatController.personalityPrompts[chatBotPersonality] ?? "You are a helpful assistant."
-        }
+    @AppStorage("chatBotPersonality") private var chatBotPersonality:
+        Personalities = .normal
 
     private let apiKey =
         ProcessInfo.processInfo.environment["api key"] ?? ""
@@ -33,31 +31,44 @@ class ChatController: ObservableObject {
         self.messages.append(userMessage)
         getBotReply()
     }
-    
+
     static let personalityPrompts: [Personalities: String] = [
-            .mean:   "You are rude and dismissive in your responses.",
-            .normal: "You are a helpful and neutral assistant.",
-            .nice:   "You are warm, encouraging, and supportive.",
-            .smart:  "You are highly analytical and precise in your responses."
-        ]
-    
-    //"Respond to everything following these instructions: High-Pressure / Savage, use tough love to shame a users bad spending habits. Extrapolate spending events out when appropriate and show the user how much they will spend if they continue over the next week, month, or year (for example). You must keep your response to 1 paragraph (~30 words)."
-    
+        .mean:
+            "Respond to everything following these instructions: High-Pressure / Savage, use tough love to shame a users bad spending habits. Extrapolate spending events out when appropriate",
+        .normal:
+            "You are a helpful and neutral assistant. Extrapolate spending events out when appropriate",
+        .nice:
+            "You are warm, encouraging, and supportive. Extrapolate spending events out when appropriate",
+        .smart:
+            "You are highly analytical and precise in your responses. Extrapolate spending events out when appropriate",
+    ]
+
     func getBotReply() {
-        let personality = [
+        let currentPersonalityRaw =
+            UserDefaults.standard.string(forKey: "chatBotPersonality")
+            ?? "normal"
+        let currentPersonality =
+            Personalities(rawValue: currentPersonalityRaw) ?? .normal
+        let systemPrompt =
+            ChatController.personalityPrompts[currentPersonality]
+            ?? "You are a helpful assistant."
+
+        let systemMessage =
             Chat(
-                role: .user,
+                role: .system,
                 content: systemPrompt
-                    
+
             )
-        ]
 
         openAI.chats(
             query: .init(
                 model: .gpt3_5Turbo,
-                messages: personality
+                messages: [systemMessage]
                     + self.messages.map {
-                        Chat(role: .user, content: $0.content)
+                        Chat(
+                            role: $0.isUser ? .user : .assistant,
+                            content: $0.content
+                        )
                     }
             )
         ) { result in
